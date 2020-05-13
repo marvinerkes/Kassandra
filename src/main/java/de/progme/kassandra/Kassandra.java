@@ -72,6 +72,11 @@ public class Kassandra {
         this.restServer.initialize();
     }
 
+    public void stop() {
+        this.restServer.stop();
+        this.athena.close();
+    }
+
     public void createMetric(KassandraMetric metric) {
         this.athena.serializationManager().insert(metric);
     }
